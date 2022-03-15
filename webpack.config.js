@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    static: "./",
+    static: "./public",
   },
   module: {
     rules: [
