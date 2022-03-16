@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Header } from "./NavBar.styled";
 
 const NavBar = () => {
   return (
-    <div>NavBar</div>
-  )
-}
+    <Header style={{ height: "5rem", background: "#0080B2" }}>
+      <nav>
+        <h1>Desempenho das lojas</h1>
+      </nav>
+    </Header>
+  );
+};
 
-export default NavBar
+export default NavBar;

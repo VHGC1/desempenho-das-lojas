@@ -4,4 +4,6 @@
 # production
 /dist
 
+/resources
+
 npm-debug.log*
