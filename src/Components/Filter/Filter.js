@@ -19,6 +19,7 @@ const Filter = ({ setSearch, setFaturamento }) => {
         <input
           type="text"
           id="faturamento"
+          placeholder="15.000,00"
           pattern="^[0-9]*$"
           onChange={({ target }) => setFaturamento(target.value)}
         />

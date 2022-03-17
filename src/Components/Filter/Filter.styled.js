@@ -10,15 +10,36 @@ export const Form = styled("form")`
 
 export const WrapperSearch = styled("div")`
   display: flex;
-  border: 1px solid #000;
+  box-shadow: rgb(198, 195, 195) 0px 0px 5px 1px;
+  padding: 0.76rem;
+  border-radius: 5px;
 
   & input {
     width: 100%;
     border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
   }
 `;
 
 export const WrapperFaturamento = styled("div")`
   display: flex;
   flex-direction: column;
+
+  & label {
+    margin-bottom: 0.5rem;
+  }
+
+  & input {
+    width: 70%;
+    text-align: end;
+    border: none;
+    box-shadow: rgb(198, 195, 195) 0px 0px 5px 1px;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+  }
 `;
