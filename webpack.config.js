@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   devServer: {
     static: "./public",
@@ -17,6 +19,29 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+        type: "javascript/auto",
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "svg-url-loader",
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
       },
     ],
   },
