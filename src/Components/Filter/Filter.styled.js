@@ -42,4 +42,14 @@ export const WrapperFaturamento = styled("div")`
     font-weight: bold;
     font-size: 1rem;
   }
+
+  & input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  & input[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;

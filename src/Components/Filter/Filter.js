@@ -17,7 +17,7 @@ const Filter = ({ setSearch, setFaturamento }) => {
       <WrapperFaturamento>
         <label htmlFor="faturamento">Faturamento minimo esperado</label>
         <input
-          type="text"
+          type="number"
           id="faturamento"
           placeholder="15.000,00"
           pattern="^[0-9]*$"
