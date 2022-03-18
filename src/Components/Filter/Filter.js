@@ -5,7 +5,7 @@ import { Form, WrapperFaturamento, WrapperSearch } from "./Filter.styled";
 const Filter = ({ setSearch, setFaturamento }) => {
   return (
     <Form>
-      <WrapperSearch style={{ display: "flex" }}>
+      <WrapperSearch>
         <input
           type="text"
           onChange={({ target }) => setSearch(target.value)}
