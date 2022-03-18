@@ -1,6 +1,4 @@
 import React from "react";
-
-import data from "../../data.json";
 import {
   Faturamento,
   StoresTable,
@@ -8,9 +6,7 @@ import {
   TableHeader,
 } from "./Table.styled";
 
-const Table = ({ faturamento }) => {
-  const { stores } = data;
-
+const Table = ({ faturamento, data }) => {
   return (
     <StoresTable>
       <TableHeader>
@@ -18,8 +14,8 @@ const Table = ({ faturamento }) => {
         <th>Faturamento</th>
       </TableHeader>
       <TableBody>
-        {stores.map(({ name, revenue }) => (
-          <tr>
+        {data.map(({ name, revenue,state }) => (
+          <tr key={name}>
             <td>{name}</td>
             <Faturamento faturamento={faturamento} revenue={revenue}>
               R$ {revenue}
