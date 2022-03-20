@@ -10,10 +10,6 @@ export const StoresTable = styled("table")`
   & thead th, & tbody tr td {
     padding: .3rem 1rem;
   }
-
-  & thead th:last-of-type, & tbody tr td:last-of-type  {
-    text-align: right;
-  }
 `;
 
 export const TableHeader = styled("thead")`
@@ -26,6 +22,11 @@ export const TableBody = styled("tbody")`
 
   & tr {
     border-bottom: 1px solid #c6c3c3;
+  }
+
+  & tr td:last-of-type {
+    width: 50px !important;
+    text-align: left;
   }
 `;
 
