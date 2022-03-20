@@ -2,13 +2,9 @@ import React from "react";
 import Table from "./Table";
 import LeftArrow from "../../Assets/left.svg";
 import RightArrow from "../../Assets/right.svg";
+import { ArrowButton, ButtonsWrapper, PageButton, PagesWrapper } from "./Pagination.styled";
 
-const Pagination = ({
-  data,
-  dataLimit,
-  faturamento,
-  setPaginetedData,
-}) => {
+const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginationGroup, setPaginationGroup] = React.useState([]);
 
@@ -47,27 +43,29 @@ const Pagination = ({
         <Table data={getPaginatedData()} faturamentoFilter={faturamento} />
       </div>
 
-      <div>
-        <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-          <img src={LeftArrow} alt="left" />
-        </button>
-        {paginationGroup.map((item, index) => (
-          <button
-            key={index}
-            onClick={changePage}
-            disabled={currentPage === item}
-          >
-            <span>{item}</span>
-          </button>
-        ))}
+      <PagesWrapper>
+        <ButtonsWrapper>
+          <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
+            <img src={LeftArrow} alt="left" />
+          </ArrowButton>
+          {paginationGroup.map((item, index) => (
+            <PageButton
+              key={index}
+              onClick={changePage}
+              disabled={currentPage === item}
+            >
+              <span>{item}</span>
+            </PageButton>
+          ))}
 
-        <button
-          onClick={goToNextPage}
-          disabled={currentPage === paginationGroup.length}
-        >
-          <img src={RightArrow} alt="right" />
-        </button>
-      </div>
+          <ArrowButton
+            onClick={goToNextPage}
+            disabled={currentPage === paginationGroup.length}
+          >
+            <img src={RightArrow} alt="right" />
+          </ArrowButton>
+        </ButtonsWrapper>
+      </PagesWrapper>
     </div>
   );
 };
