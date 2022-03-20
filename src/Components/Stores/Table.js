@@ -10,8 +10,10 @@ const Table = ({ faturamentoFilter, data }) => {
   return (
     <StoresTable>
       <TableHeader>
-        <th>Loja</th>
-        <th>Faturamento</th>
+        <tr>
+          <th>Loja</th>
+          <th>Faturamento</th>
+        </tr>
       </TableHeader>
       <TableBody>
         {data.map(({ name, revenue }) => (
