@@ -28,7 +28,7 @@ const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
   };
 
   const getPaginationGroup = () => {
-    let numPages = Math.round(data.length / dataLimit) || 1;
+    let numPages = Math.ceil(data.length / dataLimit) || 1;
     return new Array(numPages).fill().map((_, idx) => 0 + idx + 1);
   };
 
