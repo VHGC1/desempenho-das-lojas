@@ -32,17 +32,14 @@ const Pagination = ({
   };
 
   const getPaginationGroup = () => {
-    let numPages = Math.round(data.length / dataLimit)
-    return new Array(numPages).fill().map((_, idx) => 0 + idx + 1)
-  }
-  
-  React.useState(() => {
-    setPaginationGroup(getPaginationGroup());
-  }, []);
+    let numPages = Math.round(data.length / dataLimit) || 1;
+    return new Array(numPages).fill().map((_, idx) => 0 + idx + 1);
+  };
 
   React.useEffect(() => {
     setPaginetedData(getPaginatedData());
-  }, [currentPage]);
+    setPaginationGroup(getPaginationGroup());
+  }, [data, currentPage]);
 
   return (
     <div>
@@ -54,7 +51,6 @@ const Pagination = ({
         <button onClick={goToPreviousPage} disabled={currentPage === 1}>
           <img src={LeftArrow} alt="left" />
         </button>
-
         {paginationGroup.map((item, index) => (
           <button
             key={index}
