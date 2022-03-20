@@ -8,9 +8,9 @@ const Stores = ({ faturamento }) => {
   const [paginetedData, setPaginetedData] = React.useState(null);
   const { stores } = data;
 
-  React.useEffect(() => {
-    console.log(paginetedData)
-  }, [paginetedData])
+  // React.useEffect(() => {
+  //   console.log(paginetedData)
+  // }, [paginetedData])
 
   return (
     <Wrapper>
@@ -18,7 +18,6 @@ const Stores = ({ faturamento }) => {
         <Pagination
           data={stores}
           RenderComponent={Table}
-          pageLimit={5}
           dataLimit={10}
           faturamento={faturamento}
           setPaginetedData={setPaginetedData}

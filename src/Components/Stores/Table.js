@@ -6,7 +6,7 @@ import {
   TableHeader,
 } from "./Table.styled";
 
-const Table = ({ faturamento, data }) => {
+const Table = ({ faturamentoFilter, data }) => {
   return (
     <StoresTable>
       <TableHeader>
@@ -14,10 +14,10 @@ const Table = ({ faturamento, data }) => {
         <th>Faturamento</th>
       </TableHeader>
       <TableBody>
-        {data.map(({ name, revenue,state }) => (
+        {data.map(({ name, revenue }) => (
           <tr key={name}>
             <td>{name}</td>
-            <Faturamento faturamento={faturamento} revenue={revenue}>
+            <Faturamento faturamento={faturamentoFilter} revenue={revenue}>
               R$ {revenue}
             </Faturamento>
           </tr>

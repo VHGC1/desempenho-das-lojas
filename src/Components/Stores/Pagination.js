@@ -1,8 +1,16 @@
 import React from "react";
 import Table from "./Table";
+import LeftArrow from "../../Assets/left.svg";
+import RightArrow from "../../Assets/right.svg";
 
-const Pagination = ({ data, pageLimit, dataLimit, faturamento, setPaginetedData }) => {
+const Pagination = ({
+  data,
+  dataLimit,
+  faturamento,
+  setPaginetedData,
+}) => {
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [paginationGroup, setPaginationGroup] = React.useState([]);
 
   function goToNextPage() {
     setCurrentPage((page) => page + 1);
@@ -24,39 +32,44 @@ const Pagination = ({ data, pageLimit, dataLimit, faturamento, setPaginetedData 
   };
 
   const getPaginationGroup = () => {
-    let start = Math.floor((currentPage - 1) / pageLimit);
-    return new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
-  };
+    let numPages = Math.round(data.length / dataLimit)
+    return new Array(numPages).fill().map((_, idx) => 0 + idx + 1)
+  }
+  
+  React.useState(() => {
+    setPaginationGroup(getPaginationGroup());
+  }, []);
 
   React.useEffect(() => {
-    setPaginetedData(getPaginatedData())
-  }, [currentPage])
+    setPaginetedData(getPaginatedData());
+  }, [currentPage]);
 
   return (
     <div>
-      <div className="dataContainer">
-        <Table data={getPaginatedData()} faturamento={faturamento}/>
+      <div>
+        <Table data={getPaginatedData()} faturamentoFilter={faturamento} />
       </div>
 
-      <div className="pagination">
+      <div>
         <button onClick={goToPreviousPage} disabled={currentPage === 1}>
-          prev
+          <img src={LeftArrow} alt="left" />
         </button>
 
-        {getPaginationGroup().map((item, index) => (
+        {paginationGroup.map((item, index) => (
           <button
             key={index}
             onClick={changePage}
-            className={`paginationItem ${
-              currentPage === item ? "active" : null
-            }`}
+            disabled={currentPage === item}
           >
             <span>{item}</span>
           </button>
         ))}
 
-        <button onClick={goToNextPage} disabled={currentPage === pageLimit}>
-          next
+        <button
+          onClick={goToNextPage}
+          disabled={currentPage === paginationGroup.length}
+        >
+          <img src={RightArrow} alt="right" />
         </button>
       </div>
     </div>
