@@ -37,6 +37,10 @@ const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
     setPaginationGroup(getPaginationGroup());
   }, [data, currentPage]);
 
+  React.useEffect(() => {
+    setCurrentPage(1)
+  }, [data])
+
   return (
     <div>
       <div>
