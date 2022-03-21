@@ -2,7 +2,12 @@ import React from "react";
 import Table from "./Table";
 import LeftArrow from "../../Assets/left.svg";
 import RightArrow from "../../Assets/right.svg";
-import { ArrowButton, ButtonsWrapper, PageButton, PagesWrapper } from "./Pagination.styled";
+import {
+  ArrowButton,
+  ButtonsWrapper,
+  PageButton,
+  PagesWrapper,
+} from "./Pagination.styled";
 
 const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -38,8 +43,8 @@ const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
   }, [data, currentPage]);
 
   React.useEffect(() => {
-    setCurrentPage(1)
-  }, [data])
+    setCurrentPage(1);
+  }, [data]);
 
   return (
     <div>
@@ -50,7 +55,7 @@ const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
       <PagesWrapper>
         <ButtonsWrapper>
           <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
-            <img src={LeftArrow} alt="left" />
+            <LeftArrow />
           </ArrowButton>
           {paginationGroup.map((item, index) => (
             <PageButton
@@ -66,7 +71,7 @@ const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
             onClick={goToNextPage}
             disabled={currentPage === paginationGroup.length}
           >
-            <img src={RightArrow} alt="right" />
+            <RightArrow />
           </ArrowButton>
         </ButtonsWrapper>
       </PagesWrapper>

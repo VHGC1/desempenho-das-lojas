@@ -3,6 +3,7 @@ import Pagination from "./Pagination";
 import { Wrapper } from "./Stores.styled";
 import Table from "./Table";
 import data from "../../data.json";
+import Map from "./Map";
 
 const Stores = ({ faturamento, search }) => {
   const [paginetedData, setPaginetedData] = React.useState(null);
@@ -30,7 +31,9 @@ const Stores = ({ faturamento, search }) => {
           setPaginetedData={setPaginetedData}
         />
       </div>
-      <div>map</div>
+      <div >
+        <Map/>
+      </div>
     </Wrapper>
   );
 };

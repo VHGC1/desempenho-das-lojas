@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
   devServer: {
@@ -7,7 +7,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -34,14 +34,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-url-loader",
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
+        use: ["@svgr/webpack"],
       },
     ],
   },

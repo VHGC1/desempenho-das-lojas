@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const PagesWrapper = styled("div")`
   display: flex;
@@ -15,6 +16,18 @@ export const ArrowButton = styled("button")`
   background: none;
   border: none;
   cursor: pointer;
+
+  &:hover {
+    color: #e2e2e2;
+    fill: #e2e2e2;
+  }
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: #e2e2e2;
+      fill: #e2e2e2;
+    `};
 `;
 
 export const PageButton = styled(ArrowButton)`

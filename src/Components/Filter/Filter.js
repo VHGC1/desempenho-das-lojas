@@ -11,7 +11,7 @@ const Filter = ({ setSearch, setFaturamento }) => {
           onChange={({ target }) => setSearch(target.value)}
           placeholder="Pesquisa"
         />
-        <img src={Search} alt="" />
+        <Search />
       </WrapperSearch>
 
       <WrapperFaturamento>
