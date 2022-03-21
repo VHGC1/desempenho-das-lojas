@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 export const StoresTable = styled("table")`
   width: 100%;
+  height: 384.8px;
   border-collapse: collapse;
   border: 1px solid #c6c3c3;
-
+  
   & thead th, & tbody tr td {
     padding: .3rem 1rem;
   }
