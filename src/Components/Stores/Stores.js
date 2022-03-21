@@ -32,7 +32,7 @@ const Stores = ({ faturamento, search }) => {
         />
       </div>
       <div >
-        <Map/>
+        <Map paginetedData={paginetedData} />
       </div>
     </Wrapper>
   );
