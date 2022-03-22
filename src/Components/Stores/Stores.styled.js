@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Wrapper = styled("section")`
   display: grid;
@@ -14,7 +14,7 @@ export const Wrapper = styled("section")`
       gap: 1rem;
     }
   }
-`
+`;
 
 export const TableWrapper = styled("div")`
   height: 384.4px;
@@ -24,4 +24,4 @@ export const TableWrapper = styled("div")`
       margin-bottom: 3rem;
     }
   }
-`
+`;

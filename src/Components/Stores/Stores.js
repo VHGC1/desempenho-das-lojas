@@ -6,8 +6,10 @@ import data from "../../data.json";
 import Map from "./Map";
 
 const Stores = ({ faturamentoMin, search }) => {
-  const [paginatedData, setPaginatedData] = React.useState(null);
+  const [paginatedData, setPaginatedData] = React.useState([]);
   const [filteredData, setFilteredData] = React.useState([]);
+  const [sortByColumn, setSortByColumn] = React.useState(null);
+
   const { stores } = data;
 
   React.useEffect(() => {
@@ -22,7 +24,11 @@ const Stores = ({ faturamentoMin, search }) => {
     <Wrapper>
       <div>
         <TableWrapper>
-          <Table data={paginatedData} faturamentoMinFilter={faturamentoMin} />
+          <Table
+            data={paginatedData}
+            faturamentoMinFilter={faturamentoMin}
+            setSortByColumn={setSortByColumn}
+          />
         </TableWrapper>
 
         <Pagination
