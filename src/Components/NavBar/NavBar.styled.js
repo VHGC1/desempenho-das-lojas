@@ -7,4 +7,10 @@ export const Header = styled("header")`
   background: #0080B2;
   padding: 0 130px;
   color: #fff;
+
+  @media (max-width: 50rem) {
+    & {
+      padding: 0 50px;
+    }
+  }
 `

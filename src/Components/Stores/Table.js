@@ -12,7 +12,7 @@ const Table = ({ faturamentoMinFilter, data }) => {
       <TableHeader>
         <tr>
           <th>Loja</th>
-          <th>FaturamentoMin</th>
+          <th>Faturamento</th>
         </tr>
       </TableHeader>
       <TableBody>

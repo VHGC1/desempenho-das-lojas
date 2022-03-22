@@ -1,15 +1,8 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 
-// #B75151
-
 export const StoresTable = styled("table")`
   width: 100%;
-  ${({ dataSize }) =>
-    dataSize === 10 &&
-    css`
-      height: 100%;
-    `}
   border-collapse: collapse;
   border: 1px solid #c6c3c3;
 
@@ -17,6 +10,12 @@ export const StoresTable = styled("table")`
   & tbody tr td {
     padding: 0.3rem 1rem;
   }
+
+  ${({ dataSize }) =>
+    dataSize === 10 &&
+    css`
+      height: 100%;
+    `}
 `;
 
 export const TableHeader = styled("thead")`

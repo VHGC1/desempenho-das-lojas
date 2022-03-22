@@ -11,6 +11,17 @@ export const Wrapper = styled("section")`
     & {
       padding: 0 50px;
       grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+`
+
+export const TableWrapper = styled("div")`
+  height: 384.4px;
+
+  @media (max-width: 50rem) {
+    & {
+      margin-bottom: 3rem;
     }
   }
 `

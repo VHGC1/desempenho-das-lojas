@@ -1,6 +1,6 @@
 import React from "react";
 import Pagination from "./Pagination";
-import { Wrapper } from "./Stores.styled";
+import { TableWrapper, Wrapper } from "./Stores.styled";
 import Table from "./Table";
 import data from "../../data.json";
 import Map from "./Map";
@@ -21,9 +21,9 @@ const Stores = ({ faturamentoMin, search }) => {
   return (
     <Wrapper>
       <div>
-        <div style={{height: "384.4px"}}>
+        <TableWrapper>
           <Table data={paginatedData} faturamentoMinFilter={faturamentoMin} />
-        </div>
+        </TableWrapper>
 
         <Pagination
           data={filteredData}

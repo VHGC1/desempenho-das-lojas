@@ -6,6 +6,14 @@ export const Form = styled("form")`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: flex-end;
+
+  @media (max-width: 50rem) {
+    & {
+      padding: 25px 50px;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
 `;
 
 export const WrapperSearch = styled("div")`
@@ -51,5 +59,11 @@ export const WrapperFaturamentoMin = styled("div")`
 
   & input[type="number"] {
     -moz-appearance: textfield;
+  }
+
+  @media (max-width: 50rem) {
+    & input {
+      width: 100%;
+    }
   }
 `;
