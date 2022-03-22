@@ -27,7 +27,7 @@ const Stores = ({ faturamentoMin, search }) => {
         return 0;
       })
     );
-  }, [sortByColumn, stores])
+  }, [sortByColumn])
 
   React.useEffect(() => {
     setFilteredData(
