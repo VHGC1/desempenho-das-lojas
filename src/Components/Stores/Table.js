@@ -6,13 +6,30 @@ import {
   TableHeader,
 } from "./Table.styled";
 
-const Table = ({ faturamentoMinFilter, data, setSortByColumn }) => {
+const Table = ({
+  faturamentoMinFilter,
+  data,
+  sortByColumn,
+  setSortByColumn,
+}) => {
+  const requestSort = (key) => {
+    let direction = "ascending";
+    if (sortByColumn.key === key && sortByColumn.direction === "ascending") {
+      direction = "descending";
+    }
+    setSortByColumn({ key: key, direction: direction });
+  };
+
   return (
     <StoresTable dataSize={data?.length}>
       <TableHeader>
         <tr>
-          <th onClick={() => setSortByColumn("name")}>Loja</th>
-          <th onClick={() => setSortByColumn("revenue")}>Faturamento</th>
+          <th>
+            <span onClick={() => requestSort("name")}>Loja</span>
+          </th>
+          <th>
+            <span onClick={() => requestSort("revenue")}>Faturamento</span>
+          </th>
         </tr>
       </TableHeader>
       <TableBody>

@@ -7,14 +7,33 @@ import Map from "./Map";
 
 const Stores = ({ faturamentoMin, search }) => {
   const [paginatedData, setPaginatedData] = React.useState([]);
+  // const [sortedData, setSortedData] = React.useState([]);
   const [filteredData, setFilteredData] = React.useState([]);
-  const [sortByColumn, setSortByColumn] = React.useState(null);
+  const [sortByColumn, setSortByColumn] = React.useState({
+    key: "name",
+    direction: "ascending",
+  });
 
   const { stores } = data;
 
+  // React.useEffect(() => {
+  //   setSortedData(
+  //     stores.sort((a, b) => {
+  //       if (a[sortByColumn.key] < b[sortByColumn.key]) {
+  //         return sortByColumn.direction === "ascending" ? -1 : 1;
+  //       }
+  //       if (a[sortByColumn.key] > b[sortByColumn.key]) {
+  //         return sortByColumn.direction === "ascending" ? 1 : -1;
+  //       }
+  //       return 0;
+  //     })
+  //   );
+    
+  // }, [sortByColumn])
+
   React.useEffect(() => {
     setFilteredData(
-      stores.filter(({ name }) =>
+      stores?.filter(({ name }) =>
         name.toLowerCase().includes(search.toLowerCase())
       )
     );
@@ -27,6 +46,7 @@ const Stores = ({ faturamentoMin, search }) => {
           <Table
             data={paginatedData}
             faturamentoMinFilter={faturamentoMin}
+            sortByColumn={sortByColumn}
             setSortByColumn={setSortByColumn}
           />
         </TableWrapper>

@@ -3,10 +3,11 @@ import { TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { ContainerMap } from "./Map.styled";
 import { iconRed, iconBlue } from "./Icon";
+import L from "leaflet";
 
 const Map = ({ paginatedData, faturamentoMin }) => {
   return (
-    <ContainerMap center={[-23.616359, -46.664749]} zoom={12}>
+    <ContainerMap center={[-23.616359, -46.664749]} zoom={11}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

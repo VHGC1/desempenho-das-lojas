@@ -21,13 +21,10 @@ export const StoresTable = styled("table")`
 export const TableHeader = styled("thead")`
   text-align: left;
   border-bottom: 1px solid #c6c3c3;
-
-  & tr th {
-    cursor: pointer;
-  }
-
-  & tr th:hover {
+  
+  & tr th span:hover {
     color: #c6c3c3;
+    cursor: pointer;
   }
 `;
 
