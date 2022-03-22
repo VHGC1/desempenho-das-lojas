@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 
+export const TableWrapper = styled("div")`
+  height: 384.4px;
+
+  @media (max-width: 50rem) {
+    & {
+      margin-bottom: 3rem;
+    }
+  }
+`;
+
 export const PagesWrapper = styled("div")`
   display: flex;
   justify-content: center;

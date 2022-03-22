@@ -12,7 +12,7 @@ const Stores = ({ faturamentoMin, search }) => {
     key: "name",
     direction: "ascending",
   });
-  
+
   const { stores } = data;
 
   React.useEffect(() => {
@@ -27,7 +27,7 @@ const Stores = ({ faturamentoMin, search }) => {
         return 0;
       })
     );
-  }, [sortByColumn])
+  }, [sortByColumn]);
 
   React.useEffect(() => {
     setFilteredData(
@@ -40,19 +40,13 @@ const Stores = ({ faturamentoMin, search }) => {
   return (
     <Wrapper>
       <div>
-        <TableWrapper>
-          <Table
-            data={paginatedData}
-            faturamentoMinFilter={faturamentoMin}
-            sortByColumn={sortByColumn}
-            setSortByColumn={setSortByColumn}
-          />
-        </TableWrapper>
-
         <Pagination
           data={filteredData}
           dataLimit={10}
           setPaginatedData={setPaginatedData}
+          sortByColumn={sortByColumn}
+          setSortByColumn={setSortByColumn}
+          faturamentoMin={faturamentoMin}
         />
       </div>
       <div>

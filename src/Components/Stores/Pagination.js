@@ -6,9 +6,18 @@ import {
   ButtonsWrapper,
   PageButton,
   PagesWrapper,
+  TableWrapper,
 } from "./Pagination.styled";
+import Table from "./Table";
 
-const Pagination = ({ data, dataLimit, setPaginatedData }) => {
+const Pagination = ({
+  data,
+  dataLimit,
+  setPaginatedData,
+  sortByColumn,
+  setSortByColumn,
+  faturamentoMin,
+}) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginationGroup, setPaginationGroup] = React.useState([]);
 
@@ -46,29 +55,40 @@ const Pagination = ({ data, dataLimit, setPaginatedData }) => {
   }, [data]);
 
   return (
-    <PagesWrapper>
-      <ButtonsWrapper>
-        <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
-          <LeftArrow />
-        </ArrowButton>
-        {paginationGroup.map((item, index) => (
-          <PageButton
-            key={index}
-            onClick={changePage}
-            disabled={currentPage === item}
-          >
-            <span>{item}</span>
-          </PageButton>
-        ))}
+    <div>
+      <TableWrapper>
+        <Table
+          data={getPaginatedData()}
+          faturamentoMinFilter={faturamentoMin}
+          sortByColumn={sortByColumn}
+          setSortByColumn={setSortByColumn}
+        />
+      </TableWrapper>
 
-        <ArrowButton
-          onClick={goToNextPage}
-          disabled={currentPage === paginationGroup.length}
-        >
-          <RightArrow />
-        </ArrowButton>
-      </ButtonsWrapper>
-    </PagesWrapper>
+      <PagesWrapper>
+        <ButtonsWrapper>
+          <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
+            <LeftArrow />
+          </ArrowButton>
+          {paginationGroup.map((item, index) => (
+            <PageButton
+              key={index}
+              onClick={changePage}
+              disabled={currentPage === item}
+            >
+              <span>{item}</span>
+            </PageButton>
+          ))}
+
+          <ArrowButton
+            onClick={goToNextPage}
+            disabled={currentPage === paginationGroup.length}
+          >
+            <RightArrow />
+          </ArrowButton>
+        </ButtonsWrapper>
+      </PagesWrapper>
+    </div>
   );
 };
 
