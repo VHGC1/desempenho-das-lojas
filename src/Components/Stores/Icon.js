@@ -10,7 +10,7 @@ export const iconRed = new L.Icon({
     shadowUrl: null,
     shadowSize: null,
     shadowAnchor: null,
-    iconSize: new L.Point(25, 25),
+    iconSize: new L.Point(20, 20),
 });
 
 export const iconBlue = new L.Icon({
@@ -21,5 +21,5 @@ export const iconBlue = new L.Icon({
   shadowUrl: null,
   shadowSize: null,
   shadowAnchor: null,
-  iconSize: new L.Point(25, 25),
+  iconSize: new L.Point(20, 20),
 });

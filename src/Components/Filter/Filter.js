@@ -15,7 +15,7 @@ const Filter = ({ setSearch, setFaturamentoMin }) => {
       </WrapperSearch>
 
       <WrapperFaturamentoMin>
-        <label htmlFor="faturamentoMin">FaturamentoMin minimo esperado</label>
+        <label htmlFor="faturamentoMin">Faturamento Minimo esperado</label>
         <input
           type="number"
           id="faturamentoMin"

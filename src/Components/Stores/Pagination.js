@@ -8,7 +8,7 @@ import {
   PagesWrapper,
 } from "./Pagination.styled";
 
-const Pagination = ({ data, dataLimit, setPaginetedData }) => {
+const Pagination = ({ data, dataLimit, setPaginatedData }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginationGroup, setPaginationGroup] = React.useState([]);
 
@@ -37,7 +37,7 @@ const Pagination = ({ data, dataLimit, setPaginetedData }) => {
   };
 
   React.useEffect(() => {
-    setPaginetedData(getPaginatedData());
+    setPaginatedData(getPaginatedData());
     setPaginationGroup(getPaginationGroup());
   }, [data, currentPage]);
 
@@ -46,31 +46,29 @@ const Pagination = ({ data, dataLimit, setPaginetedData }) => {
   }, [data]);
 
   return (
-    <div>
-      <PagesWrapper>
-        <ButtonsWrapper>
-          <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
-            <LeftArrow />
-          </ArrowButton>
-          {paginationGroup.map((item, index) => (
-            <PageButton
-              key={index}
-              onClick={changePage}
-              disabled={currentPage === item}
-            >
-              <span>{item}</span>
-            </PageButton>
-          ))}
-
-          <ArrowButton
-            onClick={goToNextPage}
-            disabled={currentPage === paginationGroup.length}
+    <PagesWrapper>
+      <ButtonsWrapper>
+        <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
+          <LeftArrow />
+        </ArrowButton>
+        {paginationGroup.map((item, index) => (
+          <PageButton
+            key={index}
+            onClick={changePage}
+            disabled={currentPage === item}
           >
-            <RightArrow />
-          </ArrowButton>
-        </ButtonsWrapper>
-      </PagesWrapper>
-    </div>
+            <span>{item}</span>
+          </PageButton>
+        ))}
+
+        <ArrowButton
+          onClick={goToNextPage}
+          disabled={currentPage === paginationGroup.length}
+        >
+          <RightArrow />
+        </ArrowButton>
+      </ButtonsWrapper>
+    </PagesWrapper>
   );
 };
 

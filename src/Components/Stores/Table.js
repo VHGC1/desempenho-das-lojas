@@ -8,7 +8,7 @@ import {
 
 const Table = ({ faturamentoMinFilter, data }) => {
   return (
-    <StoresTable>
+    <StoresTable dataSize={data?.length}>
       <TableHeader>
         <tr>
           <th>Loja</th>
