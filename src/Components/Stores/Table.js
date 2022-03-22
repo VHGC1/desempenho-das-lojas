@@ -16,7 +16,7 @@ const Table = ({ faturamentoMinFilter, data }) => {
         </tr>
       </TableHeader>
       <TableBody>
-        {data.map(({ name, revenue }) => (
+        {data?.map(({ name, revenue }) => (
           <tr key={name}>
             <td>{name}</td>
             <FaturamentoMin faturamentoMin={faturamentoMinFilter} revenue={revenue}>

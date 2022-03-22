@@ -1,5 +1,4 @@
 import React from "react";
-import Table from "./Table";
 import LeftArrow from "../../Assets/left.svg";
 import RightArrow from "../../Assets/right.svg";
 import {
@@ -9,7 +8,7 @@ import {
   PagesWrapper,
 } from "./Pagination.styled";
 
-const Pagination = ({ data, dataLimit, faturamentoMin, setPaginetedData }) => {
+const Pagination = ({ data, dataLimit, setPaginetedData }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginationGroup, setPaginationGroup] = React.useState([]);
 
@@ -48,10 +47,6 @@ const Pagination = ({ data, dataLimit, faturamentoMin, setPaginetedData }) => {
 
   return (
     <div>
-      <div>
-        <Table data={getPaginatedData()} faturamentoMinFilter={faturamentoMin} />
-      </div>
-
       <PagesWrapper>
         <ButtonsWrapper>
           <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>

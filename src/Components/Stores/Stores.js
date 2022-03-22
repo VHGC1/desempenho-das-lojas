@@ -7,27 +7,28 @@ import Map from "./Map";
 
 const Stores = ({ faturamentoMin, search }) => {
   const [paginetedData, setPaginetedData] = React.useState(null);
-  const [filteredData, setFilteredData] = React.useState([])
+  const [filteredData, setFilteredData] = React.useState([]);
   const { stores } = data;
 
   React.useEffect(() => {
-    setFilteredData(stores.filter(({ name }) =>
-      name.toLowerCase().includes(search.toLowerCase())
-    ));
+    setFilteredData(
+      stores.filter(({ name }) =>
+        name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
   }, [search]);
 
   return (
     <Wrapper>
       <div>
+        <Table data={paginetedData} faturamentoMinFilter={faturamentoMin} />
         <Pagination
           data={filteredData}
-          RenderComponent={Table}
           dataLimit={10}
-          faturamentoMin={faturamentoMin}
           setPaginetedData={setPaginetedData}
         />
       </div>
-      <div >
+      <div>
         <Map paginetedData={paginetedData} faturamentoMin={faturamentoMin} />
       </div>
     </Wrapper>
