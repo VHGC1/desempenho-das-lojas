@@ -9,7 +9,7 @@ import {
   PagesWrapper,
 } from "./Pagination.styled";
 
-const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
+const Pagination = ({ data, dataLimit, faturamentoMin, setPaginetedData }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [paginationGroup, setPaginationGroup] = React.useState([]);
 
@@ -49,7 +49,7 @@ const Pagination = ({ data, dataLimit, faturamento, setPaginetedData }) => {
   return (
     <div>
       <div>
-        <Table data={getPaginatedData()} faturamentoFilter={faturamento} />
+        <Table data={getPaginatedData()} faturamentoMinFilter={faturamentoMin} />
       </div>
 
       <PagesWrapper>

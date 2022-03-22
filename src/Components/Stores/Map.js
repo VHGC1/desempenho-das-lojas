@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { ContainerMap } from "./Map.styled";
 import { iconRed, iconBlue } from "./Icon";
 
-const Map = ({ paginetedData, faturamento }) => {
+const Map = ({ paginetedData, faturamentoMin }) => {
   return (
     <ContainerMap center={[-23.568767, -46.649907]} zoom={12}>
       <TileLayer
@@ -15,7 +15,7 @@ const Map = ({ paginetedData, faturamento }) => {
         <Marker
           key={name}
           position={[latitude, longitude]}
-          icon={faturamento > revenue ? iconRed : iconBlue}
+          icon={faturamentoMin > revenue ? iconRed : iconBlue}
         ></Marker>
       ))}
     </ContainerMap>

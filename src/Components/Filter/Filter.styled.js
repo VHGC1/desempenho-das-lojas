@@ -23,7 +23,7 @@ export const WrapperSearch = styled("div")`
   }
 `;
 
-export const WrapperFaturamento = styled("div")`
+export const WrapperFaturamentoMin = styled("div")`
   display: flex;
   flex-direction: column;
 

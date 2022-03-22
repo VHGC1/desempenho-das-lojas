@@ -1,8 +1,8 @@
 import React from "react";
 import Search from "../../Assets/search.svg";
-import { Form, WrapperFaturamento, WrapperSearch } from "./Filter.styled";
+import { Form, WrapperFaturamentoMin, WrapperSearch } from "./Filter.styled";
 
-const Filter = ({ setSearch, setFaturamento }) => {
+const Filter = ({ setSearch, setFaturamentoMin }) => {
   return (
     <Form>
       <WrapperSearch>
@@ -14,16 +14,16 @@ const Filter = ({ setSearch, setFaturamento }) => {
         <Search />
       </WrapperSearch>
 
-      <WrapperFaturamento>
-        <label htmlFor="faturamento">Faturamento minimo esperado</label>
+      <WrapperFaturamentoMin>
+        <label htmlFor="faturamentoMin">FaturamentoMin minimo esperado</label>
         <input
           type="number"
-          id="faturamento"
+          id="faturamentoMin"
           placeholder="15.000,00"
           pattern="^[0-9]*$"
-          onChange={({ target }) => setFaturamento(target.value)}
+          onChange={({ target }) => setFaturamentoMin(target.value)}
         />
-      </WrapperFaturamento>
+      </WrapperFaturamentoMin>
     </Form>
   );
 };

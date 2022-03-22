@@ -5,7 +5,7 @@ import Table from "./Table";
 import data from "../../data.json";
 import Map from "./Map";
 
-const Stores = ({ faturamento, search }) => {
+const Stores = ({ faturamentoMin, search }) => {
   const [paginetedData, setPaginetedData] = React.useState(null);
   const [filteredData, setFilteredData] = React.useState([])
   const { stores } = data;
@@ -23,12 +23,12 @@ const Stores = ({ faturamento, search }) => {
           data={filteredData}
           RenderComponent={Table}
           dataLimit={10}
-          faturamento={faturamento}
+          faturamentoMin={faturamentoMin}
           setPaginetedData={setPaginetedData}
         />
       </div>
       <div >
-        <Map paginetedData={paginetedData} faturamento={faturamento} />
+        <Map paginetedData={paginetedData} faturamentoMin={faturamentoMin} />
       </div>
     </Wrapper>
   );

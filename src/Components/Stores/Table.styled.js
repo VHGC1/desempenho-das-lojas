@@ -31,6 +31,6 @@ export const TableBody = styled("tbody")`
   }
 `;
 
-export const Faturamento = styled("td")`
-  color: ${({faturamento, revenue}) => revenue < faturamento ? "#B75151" : "#666"}
+export const FaturamentoMin = styled("td")`
+  color: ${({faturamentoMin, revenue}) => revenue < faturamentoMin ? "#B75151" : "#666"}
 `
