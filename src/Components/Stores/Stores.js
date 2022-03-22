@@ -10,10 +10,6 @@ const Stores = ({ faturamento, search }) => {
   const [filteredData, setFilteredData] = React.useState([])
   const { stores } = data;
 
-  // React.useEffect(() => {
-  //   console.log(paginetedData)
-  // }, [paginetedData])
-
   React.useEffect(() => {
     setFilteredData(stores.filter(({ name }) =>
       name.toLowerCase().includes(search.toLowerCase())
@@ -32,7 +28,7 @@ const Stores = ({ faturamento, search }) => {
         />
       </div>
       <div >
-        <Map paginetedData={paginetedData} />
+        <Map paginetedData={paginetedData} faturamento={faturamento} />
       </div>
     </Wrapper>
   );
