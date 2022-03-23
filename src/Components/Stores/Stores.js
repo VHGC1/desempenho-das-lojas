@@ -15,7 +15,7 @@ const Stores = ({ faturamentoMin, search }) => {
 
   const { stores } = data;
 
-  React.useEffect(() => {
+  React.useMemo(() => {
     setFilteredData(
       stores.sort((a, b) => {
         if (a[sortByColumn.key] < b[sortByColumn.key]) {
