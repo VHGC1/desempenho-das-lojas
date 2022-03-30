@@ -1,19 +1,20 @@
 import React from "react";
 import LeftArrow from "../../Assets/left.svg";
 import RightArrow from "../../Assets/right.svg";
+import Map from "./Map";
 import {
   ArrowButton,
   ButtonsWrapper,
   PageButton,
   PagesWrapper,
   TableWrapper,
+  Wrapper,
 } from "./Pagination.styled";
 import Table from "./Table";
 
 const Pagination = ({
   data,
   dataLimit,
-  setPaginatedData,
   sortByColumn,
   setSortByColumn,
   faturamentoMin,
@@ -46,7 +47,6 @@ const Pagination = ({
   };
 
   React.useEffect(() => {
-    setPaginatedData(getPaginatedData());
     setPaginationGroup(getPaginationGroup());
   }, [data, currentPage]);
 
@@ -56,38 +56,51 @@ const Pagination = ({
 
   return (
     <div>
-      <TableWrapper>
-        <Table
-          data={getPaginatedData()}
-          faturamentoMinFilter={faturamentoMin}
-          sortByColumn={sortByColumn}
-          setSortByColumn={setSortByColumn}
-        />
-      </TableWrapper>
+      <Wrapper>
+        <div>
+          <TableWrapper>
+            <Table
+              data={getPaginatedData()}
+              faturamentoMinFilter={faturamentoMin}
+              sortByColumn={sortByColumn}
+              setSortByColumn={setSortByColumn}
+            />
+          </TableWrapper>
+          <PagesWrapper>
+            <ButtonsWrapper>
+              <ArrowButton
+                onClick={goToPreviousPage}
+                disabled={currentPage === 1}
+              >
+                <LeftArrow />
+              </ArrowButton>
+              {paginationGroup.map((item, index) => (
+                <PageButton
+                  key={index}
+                  onClick={changePage}
+                  disabled={currentPage === item}
+                >
+                  <span>{item}</span>
+                </PageButton>
+              ))}
 
-      <PagesWrapper>
-        <ButtonsWrapper>
-          <ArrowButton onClick={goToPreviousPage} disabled={currentPage === 1}>
-            <LeftArrow />
-          </ArrowButton>
-          {paginationGroup.map((item, index) => (
-            <PageButton
-              key={index}
-              onClick={changePage}
-              disabled={currentPage === item}
-            >
-              <span>{item}</span>
-            </PageButton>
-          ))}
+              <ArrowButton
+                onClick={goToNextPage}
+                disabled={currentPage === paginationGroup.length}
+              >
+                <RightArrow />
+              </ArrowButton>
+            </ButtonsWrapper>
+          </PagesWrapper>
+        </div>
 
-          <ArrowButton
-            onClick={goToNextPage}
-            disabled={currentPage === paginationGroup.length}
-          >
-            <RightArrow />
-          </ArrowButton>
-        </ButtonsWrapper>
-      </PagesWrapper>
+        <div>
+          <Map
+            paginatedData={getPaginatedData()}
+            faturamentoMin={faturamentoMin}
+          />
+        </div>
+      </Wrapper>
     </div>
   );
 };

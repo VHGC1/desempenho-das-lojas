@@ -1,9 +1,8 @@
 import React from "react";
-import { TileLayer, Marker, Popup } from "react-leaflet";
+import { TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { ContainerMap } from "./Map.styled";
 import { iconRed, iconBlue } from "./Icon";
-import L from "leaflet";
 
 const Map = ({ paginatedData, faturamentoMin }) => {
   return (
@@ -12,6 +11,7 @@ const Map = ({ paginatedData, faturamentoMin }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      {console.log(paginatedData)}
       {paginatedData?.map(({ latitude, longitude, name, revenue }) => (
         <Marker
           key={name}
