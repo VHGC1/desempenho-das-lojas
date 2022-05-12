@@ -17,7 +17,7 @@ Teste para vaga de front-end junior para geofusion
 
 #### ---- How to start -----
     
-    - 1 - git clone https://gitlab.com/VHGC_1/gfn_frontend_challenge_vitor-costa.git
+    - 1 - git clone https://github.com/VHGC1/gfn_frontend_challenge_vitor-costa.git
     - 2 - npm install
     - 3 - npm start
 
