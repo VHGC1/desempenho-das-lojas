@@ -1,6 +1,6 @@
-# gfn_frontend_challenge
+# Desempenho das lojas
 
-Teste para vaga de front-end junior para geofusion
+Webapp desenvolvido com o objetivo de observar as lojas, a localização delas plotadas em um mapa e o seu faturamento
 
 ## Table of contents
 
